@@ -14,11 +14,11 @@ class CartModel {
     required this.addedAt,
   });
 
-  CartModel copyWith({int? quantity}) {
+  CartModel copyWith({int? quantity, double? lineTotal}) {
     return CartModel(
       product: product,
       quantity: quantity ?? this.quantity,
-      lineTotal: lineTotal,
+      lineTotal: lineTotal ?? this.lineTotal,
       addedAt: addedAt,
     );
   }
