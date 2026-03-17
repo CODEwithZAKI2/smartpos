@@ -6,11 +6,11 @@ class ProductService {
 
   Future<void> addProduct({required ProductModel product}) async {
     try {
-      ProductModel newProduct = product.copyWith(id: product.barcode);
+      ;
       await _firestore
           .collection('products')
           .doc(product.barcode)
-          .set(newProduct.toJson());
+          .set(product.toJson());
     } catch (e) {
       throw Exception('Failed to add product: $e');
     }

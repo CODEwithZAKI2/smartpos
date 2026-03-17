@@ -81,17 +81,18 @@ class _UpdateProductWidgetsState extends ConsumerState<UpdateProductWidgets> {
     double costPrice = double.parse(_costPriceController.text);
     int stockQuantity = int.parse(_stockQuantityController.text);
     String category = _categoryController.text;
-    Timestamp createdAt = Timestamp.fromDate(DateTime.now());
+    Timestamp updatedAt = Timestamp.fromDate(DateTime.now());
 
     final product = ProductModel(
-      id: 'Placeholder',
+      id: widget.product.id,
       barcode: barcode,
       name: name,
       price: price,
       costPrice: costPrice,
       stockQuantity: stockQuantity,
       category: category,
-      createdAt: createdAt,
+      createdAt: widget.product.createdAt,
+      updatedAt: updatedAt,
     );
     try {
       await ref.read(productServiceProvider).updateProduct(product);

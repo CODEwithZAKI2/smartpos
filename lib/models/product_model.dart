@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProductModel {
-  final String id;
+  final String? id;
   final String barcode;
   final String name;
   final double price;
@@ -13,7 +13,6 @@ class ProductModel {
   final Timestamp? updatedAt;
 
   const ProductModel({
-    required this.id,
     required this.barcode,
     required this.name,
     required this.price,
@@ -23,6 +22,7 @@ class ProductModel {
     required this.category,
     required this.createdAt,
     this.updatedAt,
+    this.id,
   });
 
   ProductModel copyWith({
@@ -54,8 +54,8 @@ class ProductModel {
   factory ProductModel.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data() as Map<String, dynamic>;
     return ProductModel(
-      id: doc.id,
-      barcode: data['barcode'] as String,
+      id: data['id'] as String,
+      barcode: doc.id,
       name: data['name'] as String,
       price: (data['price'] as num).toDouble(),
       costPrice:

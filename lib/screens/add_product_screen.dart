@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:smartpos/models/product_model.dart';
 import 'package:smartpos/providers/product_provider.dart';
+import 'package:uuid/uuid.dart';
 
 class AddProductScreen extends StatelessWidget {
   const AddProductScreen({super.key});
@@ -16,6 +17,8 @@ class AddProductScreen extends StatelessWidget {
     );
   }
 }
+
+final uuid = Uuid();
 
 class AddProductWidgets extends ConsumerStatefulWidget {
   const AddProductWidgets({super.key});
@@ -56,7 +59,7 @@ class _AddProductWidgetsState extends ConsumerState<AddProductWidgets> {
     Timestamp createdAt = Timestamp.fromDate(DateTime.now());
 
     final product = ProductModel(
-      id: 'Placeholder',
+      id: uuid.v1(),
       barcode: barcode,
       name: name,
       price: price,
