@@ -10,7 +10,7 @@ class ProductModel {
   final String? imageUrl;
   final String category;
   final Timestamp createdAt;
-  final Timestamp updatedAt;
+  final Timestamp? updatedAt;
 
   const ProductModel({
     required this.id,
@@ -22,7 +22,7 @@ class ProductModel {
     this.imageUrl,
     required this.category,
     required this.createdAt,
-    required this.updatedAt,
+    this.updatedAt,
   });
 
   ProductModel copyWith({
@@ -66,7 +66,8 @@ class ProductModel {
       imageUrl: data['imageUrl'] as String?,
       category: data['category'] as String,
       createdAt: data['createdAt'] as Timestamp,
-      updatedAt: data['updatedAt'] as Timestamp,
+      updatedAt:
+          data['updatedAt'] != null ? data['updatedAt'] as Timestamp : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -80,7 +81,7 @@ class ProductModel {
       if (imageUrl != null) 'imageUrl': imageUrl,
       'category': category,
       'createdAt': createdAt,
-      'updatedAt': updatedAt,
+      if (updatedAt != null) 'updatedAt': updatedAt,
     };
   }
 
