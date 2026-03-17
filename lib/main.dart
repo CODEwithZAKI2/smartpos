@@ -3,13 +3,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smartpos/providers/auth_provider.dart';
 import 'package:smartpos/screens/home_screen.dart';
+import 'package:smartpos/screens/login_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+  
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -26,7 +27,7 @@ class MyApp extends ConsumerWidget {
           // Not logged in
           if (user == null) {
             print('User is not logging');
-            return const Placeholder();
+            return const LoginScreen();
           }
 
           return const HomeScreen();
