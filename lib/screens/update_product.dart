@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smartpos/models/product_model.dart';
 import 'package:smartpos/providers/product_provider.dart';
-import 'package:smartpos/screens/inventory_screen.dart';
 
 class UpdateProduct extends ConsumerWidget {
   const UpdateProduct({super.key, required this.barcode});
