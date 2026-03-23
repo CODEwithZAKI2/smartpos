@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smartpos/screens/add_product_screen.dart';
 import 'package:smartpos/screens/inventory_screen.dart';
 import 'package:smartpos/screens/pos_screen.dart';
+import 'package:smartpos/screens/settings_screen.dart';
 import 'package:smartpos/services/auth_service.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -58,6 +59,7 @@ class _QuickActionsState extends State<QuickActions> {
       {'Inventory': InventoryScreen()},
       {'AddProduct': AddProductScreen()},
       {'Pos': PosScreen()},
+      {'Settings': SettingsScreen()}
     ];
 
     return Expanded(
